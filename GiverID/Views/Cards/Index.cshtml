@@ -1,0 +1,42 @@
+﻿@model IEnumerable<GiverID.Models.Card>
+
+@{
+    ViewBag.Title = "Cards";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Register Card", "Create")
+</p>
+
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CardNumber)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardNumber)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <p>
+        You haven't registered any cards yet.
+    </p>
+}

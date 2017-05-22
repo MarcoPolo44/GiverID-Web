@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Verification Email";
+}
+
+<h2>@ViewBag.Title</h2>
+@{
+    if (String.IsNullOrEmpty(ViewBag.Message))
+    {
+        <p>An error occurred while processing your request.</p>
+    }
+    else
+    {
+        <p>@ViewBag.Message</p>
+    }
+}
